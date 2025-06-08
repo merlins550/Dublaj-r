@@ -1,0 +1,64 @@
+🎬 DUBLAJÖR – Offline Video Dublaj ve Çeviri Uygulaması
+🎯 Proje Amacı
+
+DUBLAJÖR, kullanıcıların yüklediği video veya ses dosyalarını tamamen offline çalışan bir sistemle:
+
+    Yazıya çevirir (transkript),
+
+    Hedef dile tercüme eder,
+
+    Tercüme edilen metni, istenen dilde sesli dublaj haline getirir (mp3),
+
+    Kullanıcıya çıktıyı verir.
+
+Bu sayede, internet bağlantısına ihtiyaç duymadan çok dilli içerik üretimi mümkün hale gelir.
+🛠️ Sistem Özellikleri (MVP - İlk Sürüm)
+Giriş Formatları:
+
+    .mp4, .mp3, .wav dosyaları desteklenir.
+
+Çıktı:
+
+    .mp3 formatında Türkçe dublaj (veya başka bir desteklenen dilde).
+
+Arayüz:
+
+    Masaüstü uygulaması (.exe),
+
+    Sade, yükle–çalıştır mantığıyla çalışır,
+
+    Dosya yükle → Dublaj başlat → Sonuç indir.
+
+🧩 Kullanılan Ana Bileşenler
+Bileşen	Görev	Açıklama
+FFmpeg	Videodan ses çıkarma	Lokal kurulum, hızlı
+Whisper.cpp	İngilizce konuşmayı yazıya çevirme (STT)	Offline çalışır
+Argos Translate	İngilizceden Türkçeye çeviri	Open source, lokal
+Balabolka	Türkçe seslendirme (TTS)	Sistem seslerini kullanır
+Tkinter	GUI Arayüz	Python native, hafif
+PyInstaller	.exe üretimi	Masaüstü uygulama için
+🔄 Teknik İş Akışı
+
+    🎞️ Video/Ses dosyası yüklenir,
+
+    🔉 FFmpeg ile ses ayrıştırılır,
+
+    ✍️ Whisper ile İngilizce transkript alınır,
+
+    🌍 Argos Translate ile Türkçeye çeviri yapılır,
+
+    🔊 Balabolka ile metin seslendirilir,
+
+    💾 Türkçe ses dosyası (output.mp3) çıktısı verilir.
+
+✅ MVP Hedefleri (Tamamlanacaklar)
+
+Offline çalışma,
+
+.mp4/.mp3 giriş desteği,
+
+Transkript + Çeviri + Seslendirme pipeline,
+
+.exe olarak tek dosya kurulum,
+
+Arayüzden dosya seçme, başlatma, sonucu alma.
